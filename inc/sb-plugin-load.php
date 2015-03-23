@@ -1,7 +1,7 @@
 <?php
 require SB_PLUGIN_DEFAULT_INC_PATH . '/sb-plugin-install.php';
 
-if(!sb_plugin_default_check_core() || !sb_plugin_default_is_core_valid()) {
+if ( ! sb_plugin_default_check_core() || ! sb_plugin_default_is_core_valid() ) {
     return;
 }
 
