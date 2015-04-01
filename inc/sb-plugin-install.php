@@ -27,7 +27,14 @@ function sb_plugin_default_is_core_valid() {
     return false;
 }
 
+function sb_plugin_default_not_valid_core_message() {
+    return sprintf( '<div class="error"><p><strong>' . __( 'Error', 'sb-plugin-default' ) . ':</strong> ' . __( 'SB Plugin Default only run with %1$s, please update it via updates page or download it manually.', 'sb-plugin-default' ) . '.</p></div>', sprintf( '<a target="_blank" href="%1$s" style="text-decoration: none">SB Core version %2$s</a>', 'https://wordpress.org/plugins/sb-core/', SB_PLUGIN_DEFAULT_USE_CORE_VERSION ) );
+}
+
 function sb_plugin_default_activation() {
+    if(!current_user_can('activate_plugins')) {
+        return;
+    }
     do_action( 'sb_plugin_default_activation' );
 }
 register_activation_hook( SB_PLUGIN_DEFAULT_FILE, 'sb_plugin_default_activation' );
@@ -36,10 +43,6 @@ function sb_plugin_default_deactivation() {
     do_action( 'sb_plugin_default_deactivation' );
 }
 register_deactivation_hook( SB_PLUGIN_DEFAULT_FILE, 'sb_plugin_default_deactivation' );
-
-function sb_plugin_default_not_valid_core_message() {
-    return sprintf( '<div class="error"><p><strong>' . __( 'Error', 'sb-plugin-default' ) . ':</strong> ' . __( 'SB Plugin Default only run with %1$s, please update it via updates page or download it manually.', 'sb-plugin-default' ) . '.</p></div>', sprintf( '<a target="_blank" href="%1$s" style="text-decoration: none">SB Core version %2$s</a>', 'https://wordpress.org/plugins/sb-core/', SB_PLUGIN_DEFAULT_USE_CORE_VERSION ) );
-}
 
 function sb_plugin_default_check_admin_notices() {
     if ( ! empty( $GLOBALS['pagenow'] ) && 'plugins.php' === $GLOBALS['pagenow'] ) {

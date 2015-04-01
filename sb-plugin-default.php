@@ -4,13 +4,13 @@ Plugin Name: SB Plugin Default
 Plugin URI: http://hocwp.net/
 Description: SB Plugin Default is created SB Team.
 Author: SB Team
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://hocwp.net/
 Text Domain: sb-plugin-default
 Domain Path: /languages/
 */
 
-define( 'SB_PLUGIN_DEFAULT_USE_CORE_VERSION', '1.5.9' );
+define( 'SB_PLUGIN_DEFAULT_USE_CORE_VERSION', '1.6.2' );
 
 define( 'SB_PLUGIN_DEFAULT_FILE', __FILE__ );
 
